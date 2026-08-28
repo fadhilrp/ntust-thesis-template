@@ -1,0 +1,10 @@
+name: Question
+description: Not a bug or feature request. (Prefer Discussions if enabled.)
+labels: [question]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true

@@ -1,0 +1,131 @@
+%
+% this file is encoded in utf-8
+% v1.7
+
+\documentclass[landscape,12pt]{article}
+
+% If using the latex + dvipdfmx workflow, pass -l explicitly for landscape layout:
+%   dvipdfmx -l ntust_coverbridge.dvi
+%
+% The pdflatex workflow selects landscape layout automatically.
+%
+% Requires LaTeX CJK package 4.6.0 or later.
+%
+\usepackage{CJK}
+
+\usepackage{geometry}
+\geometry{verbose,a4paper,landscape, tmargin=2.5cm, bmargin=3cm, lmargin=2.5cm, rmargin=3cm}
+
+
+\ifx\pdfoutput\undefined
+  % not running pdftex
+  \usepackage[dvipdfm]{graphicx}
+\else
+  \ifx\pdfoutput\relax
+    % not running pdftex
+    \usepackage[dvipdfm]{graphicx}
+  \else
+    % running pdftex, with...
+    \ifnum\pdfoutput>0
+      % ... PDF output
+      \usepackage[pdftex]{graphicx}
+    \else
+      %...DVI output
+      \usepackage[dvipdfm]{graphicx}
+    \fi
+  \fi
+\fi
+
+
+\usepackage{rotating} %package required to rotate the graduation year Arabic numerals
+\usepackage{CJKvert} %package required to rotate CJK characters vertically
+
+\parindent = 0Pt  % paragraph indentation is controlled by CJK, so set to no indent here
+
+\begin{document}
+\thispagestyle{empty} % no page number
+%
+\begin{CJK}{UTF8}{bkai}
+% The chosen CJK font must have a matching .fdx file for vertical typesetting;
+% otherwise, interspersed Latin/numeric characters will not align with CJK characters.
+%
+% variable placeholders
+% These are just default values; do not modify here.
+% Modify my_names.tex instead.
+
+\newcommand\cTitle{}
+\newcommand\eTitle{}
+\newcommand\myCname{}
+\newcommand\myEname{}
+\newcommand\advisorCnameA{}
+\newcommand\advisorEnameA{}
+\newcommand\advisorCnameB{}
+\newcommand\advisorEnameB{}
+\newcommand\advisorCnameC{}
+\newcommand\advisorEnameC{}
+\newcommand\univCname{}
+\newcommand\univEname{}
+\newcommand\deptCname{}
+\newcommand\fulldeptEname{}
+\newcommand\deptEname{}
+\newcommand\collEname{}
+\newcommand\degreeCname{}
+\newcommand\degreeEname{}
+\newcommand\cYear{}
+\newcommand\cMonth{}
+\newcommand\eYear{}
+\newcommand\eMonth{}
+\newcommand\ePlace{}
+
+%
+% CJK vertical typesetting (rotate each CJK character 90 degrees counter-clockwise)
+\CJKvert
+%
+% font size:
+% \large (14pt) < \Large (18pt) < \LARGE (20pt) < \huge (24pt)< \Huge (24 pt)
+%
+% Redefine CJK character spacing to avoid characters being too tight after rotation
+\renewcommand{\CJKglue}{\hskip 0.5pt plus 0.08\baselineskip}
+%
+% Load personal information
+\input{my_names.tex}
+%
+%
+%
+% Begin typesetting
+%
+%
+% Oral examination year (graduation class)
+\makebox[1cm][l]{%
+\begin{sideways}\GraduationClass\end{sideways}%
+}%
+%
+% Display degree type
+\makebox[2.5cm][c]{\Large{\degreeCname\ Thesis}}%
+%
+\hfill
+% Thesis title (long titles wrap automatically)
+% Due to a slight baseline discrepancy between rotated CJK in makebox vs. parbox (cause unknown),
+% the thesis title and institution name typeset in a parbox appear slightly lower (shifted left after
+% rotation) compared to parts typeset in a makebox. Use raisebox for fine adjustment.
+\newcommand\myFineTune{1.75pt} % fine-tuning offset
+%
+\raisebox{\myFineTune}{\parbox{13.5cm}{\renewcommand\baselinestretch{0.5}\Large{\cTitle}}%
+}
+\hfill
+%
+% University and department names
+\raisebox{\myFineTune}{%
+\parbox{3.1cm}{% university and department names must be close together, so use \tiny for small line spacing
+\tiny \makebox[3cm][s]{\small{\univCname}}\\%
+\makebox[3cm][s]{\footnotesize{\deptCname}}%
+}%
+}%
+%
+%
+\hspace{0.8cm}
+%
+\makebox[2cm][s]{\Large{\myCname}}%
+%
+\end{CJK}
+\end{document}

@@ -1,0 +1,97 @@
+
+\chapter{Common Document Elements}
+\label{cha:elements}
+
+This chapter demonstrates the elements most theses need. Delete it once you have
+copied the patterns you want.
+
+\section{Figures}
+\label{sec:fig}
+
+Figure~\ref{fig:example} shows how to include an image. Put your image files in a
+\texttt{figures/} folder and reference them without the extension. The caption
+goes below the figure.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=3cm,keepaspectratio]{figures/example-figure}
+  \caption{An example figure. Replace with your own image in \texttt{figures/}.}
+  \label{fig:example}
+\end{figure}
+
+\section{Tables}
+\label{sec:tab}
+
+Table~\ref{tab:example} is a simple three-column table. The caption goes above
+the table.
+
+\begin{table}[htbp]
+  \centering
+  \caption{An example table.}
+  \label{tab:example}
+  \begin{tabular}{|l|c|r|}
+    \hline
+    \textbf{Method} & \textbf{Setting} & \textbf{Score} \\
+    \hline
+    Baseline    & default   & 0.318 \\
+    \hline
+    Proposed    & tuned     & 0.644 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Equations}
+\label{sec:eq}
+
+Inline math looks like $y = mx + b$. Numbered display equations are
+cross-referenceable, as in Equation~\ref{eq:example}:
+
+\begin{equation}
+  \label{eq:example}
+  g = \frac{\mathrm{post} - \mathrm{pre}}{100 - \mathrm{pre}}
+\end{equation}
+
+\section{Lists}
+\label{sec:lists}
+
+An unordered list:
+\begin{itemize}
+  \item first point;
+  \item second point;
+  \item third point.
+\end{itemize}
+
+An ordered list:
+\begin{enumerate}
+  \item do this first;
+  \item then this;
+  \item finally this.
+\end{enumerate}
+
+\section{Citations}
+\label{sec:cite}
+
+Cite one source~\cite{example-article}, or several at once~\cite{example-inproceedings,
+example-techreport}. The bibliography style is numeric; entries appear in the
+References list in citation order. See \texttt{my\_bib.bib} for one example of each
+common entry type: article~\cite{example-article}, conference
+paper~\cite{example-inproceedings}, book~\cite{example-book}, book
+chapter~\cite{example-incollection}, technical report~\cite{example-techreport},
+and online resource~\cite{example-online}.
+
+\section{Code listings}
+\label{sec:code}
+
+Use the \texttt{listings} package for source code. Listing~\ref{lst:example} shows
+a short example.
+
+\begin{lstlisting}[caption={An example code listing.},label={lst:example},basicstyle=\ttfamily\small,frame=single]
+def normalized_gain(pre, post):
+    return (post - pre) / (100 - pre)
+\end{lstlisting}
+
+\section{Footnotes}
+\label{sec:foot}
+
+Add a footnote where a brief aside would interrupt the sentence.\footnote{This is
+an example footnote.} Footnotes are numbered automatically.

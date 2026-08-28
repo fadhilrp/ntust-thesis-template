@@ -1,0 +1,547 @@
+%
+% this file is encoded in utf-8
+% v1.7
+% do not change the content of this file
+% unless the thesis layout rule is changed
+% No modification needed unless the university changes the format of:
+% cover, title page, Chinese abstract, English abstract, acknowledgments,
+% table of contents, list of tables, list of figures, nomenclature
+% this file is encoded in utf-8
+%v1.7
+
+% make the line spacing in effect
+\renewcommand{\baselinestretch}{\mybaselinestretch}
+\large % it needs a font size changing command to be effective
+
+% default variables definitions
+% Note: these are just default values; do not modify here.
+% Modify my_names.tex instead.
+\newcommand\cTitle{Thesis Title}
+\newcommand\eTitle{MY THESIS TITLE}
+\newcommand\myCname{Tie-Hsiung Wang}
+\newcommand\myEname{Aron Wang}
+\newcommand\myStudentID{M9315048}
+\newcommand\advisorCnameA{Dr.~Ming Nangong}
+\newcommand\advisorEnameA{Dr.~Ming Nangong}
+\newcommand\advisorCnameB{Dr.~Stein Lee}
+\newcommand\advisorEnameB{Dr.~Stein Lee}
+\newcommand\advisorCnameC{Dr.~Sean~Hsu}
+\newcommand\advisorEnameC{Dr.~Sean~Hsu}
+\newcommand\univCname{National Taiwan University of Science and Technology}
+\newcommand\univEname{National Taiwan University of science and technology}
+\newcommand\deptCname{Graduate Institute of Electro-Optical Engineering}
+\newcommand\fulldeptEname{Graduate School of Electro-Optical Engineering}
+\newcommand\deptEname{Electro-optical Engineering}
+\newcommand\collEname{College of Engineering}
+\newcommand\degreeCname{Master of Science}
+\newcommand\degreeEname{Master of Science}
+\newcommand\cYear{94}
+\newcommand\cMonth{6}
+\newcommand\cDay{10}
+%\newcounter{eYear}
+\newcommand\eYear{2006}
+\newcommand\eMonth{June}
+\newcommand\ePlace{Chungli, Taoyuan, Taiwan}
+
+
+ % user's names; to replace those default variable definitions
+\input{frontpages/my_names.tex}
+\hypersetup{
+    pdftitle  = {\eTitle},
+    pdfauthor = {\myEname},
+    pdfsubject = {Master's Thesis},
+}
+\newcommand\itsempty{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       ntust cover page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{titlepage}
+% no page number
+% next page will be page 1
+
+% aligned to the center of the page
+\begin{center}
+% font size (relative to 12 pt):
+% \large (14pt) < \Large (18pt) < \LARGE (20pt) < \huge (24pt)< \Huge (24 pt)
+%
+
+
+
+% logo pinned to the left margin (zero width), three institution lines centered on the full page
+\noindent
+\makebox[0pt][l]{\raisebox{-1.6cm}[0pt][0pt]{\includegraphics[width=2.8cm]{figures/ntust_logo.png}}}%
+\begin{minipage}{\textwidth}
+\centering
+{\fontsize{34}{42}\selectfont\textbf{\univCname}}\\[8pt]  %display Chinese university name
+{\fontsize{34}{42}\selectfont\textbf{\deptCname}}\\[8pt]  %display Chinese department name
+{\fontsize{34}{42}\selectfont\textbf{\degreeCname 論文}}   %display degree type
+\end{minipage}
+
+\vspace{0.5cm}
+\centering
+{
+\linespread{0.1} \selectfont
+\null\hfill {\fontsize{14}{17}\selectfont 學號：\myStudentID}
+\rule{\linewidth}{2pt}
+}
+
+
+
+
+%
+% Set the line spacing to single for the titles (to compress the lines)
+\renewcommand{\baselinestretch}{1}   %line spacing 1x
+\vspace{1cm}
+%\large % it needs a font size changing command to be effective
+\textbf{\fontsize{20}{25}\selectfont \cTitle}\\  % Chinese title
+%
+\vspace{1cm}
+%
+\textbf{\fontsize{20}{25}\selectfont \eTitle}\\ %English title
+\vspace{5cm}
+% \makebox is a text box with specified width;
+% option s: stretch
+% use \makebox to make sure
+% "Student:" and "Advisor:" occupy the same width
+\hspace*{2.5cm}\begin{minipage}{\dimexpr\textwidth-2.5cm\relax}
+\raggedright
+\makebox[2.4cm][s]{\fontsize{16}{19}\selectfont 研究生}：{\fontsize{16}{19}\selectfont \myCname}\\[6pt]
+\makebox[2.4cm][s]{\fontsize{16}{19}\selectfont 指導教授}：{\fontsize{16}{19}\selectfont \advisorEnameA\ (\advisorCnameA)}
+\end{minipage}\\
+%
+% check whether co-advisor B exists
+\ifx \advisorCnameB  \itsempty
+\relax % no Advisor B; do not take any space or print anything
+\else
+% co-advisor B
+\hspace{4.5cm} \makebox[3cm][s]{}
+\makebox[3cm][s]{\Large{\advisorCnameB}}  %display Advisor B's Chinese name
+\hfill \makebox[1cm][s]{}\\
+\fi
+%
+% check whether co-advisor C exists
+\ifx \advisorCnameC  \itsempty
+\relax % no Advisor C; do not take any space or print anything
+\else
+% co-advisor C
+\hspace{4.5cm} \makebox[3cm][s]{}
+\makebox[3cm][s]{\Large{\advisorCnameC}}  %display Advisor C's Chinese name
+\hfill \makebox[1cm][s]{}\\
+\fi
+%
+\vfill
+\centerline{\fontsize{20}{25}\selectfont 中華民國~115~年~07~月}%
+%
+\end{center}
+% Resume the line spacing to the desired setting
+\renewcommand{\baselinestretch}{\mybaselinestretch}   %restore original setting
+% it needs a font size changing command to be effective
+% restore the font size to normal
+\normalsize
+\end{titlepage}
+%%%%%%%%%%%%%%
+
+%% Pages from abstract to before the body use lowercase Roman page numbers.
+%% But counting starts from the "title page" (which does not print a page number).
+%\setcounter{page}{1}
+\pagenumbering{Roman}
+%\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Advisor Recommendation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% insert the printed standard form when the thesis is ready to bind
+% Add the signed recommendation form before binding after the oral examination.
+% create an entry in table of contents for the recommendation form
+% currently outputs a blank page
+%\newpage{\thispagestyle{empty}\addcontentsline{toc}{chapter}{\nameInnerCover}\mbox{}\clearpage}%
+%\newpage
+
+% check whether watermark is active
+\ifx\mywatermark\undefined
+  \thispagestyle{empty}  % no page number, no header (no watermark)
+\else
+  \thispagestyle{EmptyWaterMarkPage} % no page number, with watermark
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%no page number
+%% create an entry in table of contents for the title page
+%\addcontentsline{toc}{chapter}{\nameInnerCover}
+%
+%
+%% aligned to the center of the page
+%\begin{center}
+%% font size (relative to 12 pt):
+%% \large (14pt) < \Large (18pt) < \LARGE (20pt) < \huge (24pt)< \Huge (24 pt)
+%% Set the line spacing to single for the titles (to compress the lines)
+%\renewcommand{\baselinestretch}{1}   %line spacing 1x
+%% it needs a font size changing command to be effective
+%%Chinese title
+%\Large{\cTitle}\\ %%%%%
+%\vspace{1cm}
+%% English title
+%\Large{\eTitle}\\ %%%%%
+%%\vspace{1cm}
+%\vfill
+%% \makebox is a text box with specified width;
+%% option s: stretch
+%% use \makebox to make sure
+%% "Student:" and "Advisor:" occupy the same width
+%\makebox[3cm][s]{\large{Student:}}
+%\makebox[3cm][l]{\large{\myCname}} %%%%%
+%\hfill
+%\makebox[2cm][s]{\large{Student: }}
+%\makebox[5cm][l]{\large{\myEname}}\\ %%%%%
+%%
+%%\vspace{1cm}
+%%
+%\makebox[3cm][s]{\large{Advisor:}}
+%\makebox[3cm][l]{\large{\advisorCnameA}} %%%%%
+%\hfill
+%\makebox[2cm][s]{\large{Advisor: }}
+%\makebox[5cm][l]{\large{\advisorEnameA}}\\ %%%%%
+%%
+%% check whether co-advisor B exists
+%\ifx \advisorCnameB  \itsempty
+%\relax % no Advisor B; do not take any space or print anything
+%\else
+%%co-advisor B
+%\makebox[3cm][s]{}
+%\makebox[3cm][l]{\large{\advisorCnameB}} %%%%%
+%\hfill
+%\makebox[2cm][s]{}
+%\makebox[5cm][l]{\large{\advisorEnameB}}\\ %%%%%
+%\fi
+%%
+%% check whether co-advisor C exists
+%\ifx \advisorCnameC  \itsempty
+%\relax % no Advisor C; do not take any space or print anything
+%\else
+%%co-advisor C
+%\makebox[3cm][s]{}
+%\makebox[3cm][l]{\large{\advisorCnameC}} %%%%%
+%\hfill
+%\makebox[2cm][s]{}
+%\makebox[5cm][l]{\large{\advisorEnameC}}\\ %%%%%
+%\fi
+%%
+%% Resume the line spacing to the desired setting
+%\renewcommand{\baselinestretch}{\mybaselinestretch}   %restore original setting
+%\large %it needs a font size changing command to be effective
+%%
+%\vfill
+%\makebox[4cm][s]{\large{\univCname}}\\% university name
+%\makebox[6cm][s]{\large{\deptCname}}\\% department name
+%\makebox[3cm][s]{\large{\degreeCname\ Thesis}}\\% degree name
+%%
+%%\vspace{1cm}
+%\vfill
+%\large{A Thesis}\\%
+%\large{Submitted to }%
+%%
+%\large{\fulldeptEname}\\%department full name (English)
+%%
+%%
+%\ifx \collEname  \itsempty
+%\relax % no college name (English); do not take any space or print anything
+%\else
+%% has college name (English)
+%\large{\collEname}\\% college name (English)
+%\fi
+%%
+%\large{\univEname}\\%university name (English)
+%%
+%\large{in Partial Fulfillment of the Requirements}\\
+%%
+%\large{for the Degree of}\\
+%%
+%\large{\degreeEname}\\%degree name (English)
+%
+%\large{in}\\
+%%
+%\large{\deptEname}\\%department short name (English; indicates degree field)
+%%
+%\large{\eMonth\ \eYear}\\%month, year (English)
+%%
+%\large{\ePlace}% university location (English)
+%\vfill
+%\large{Republic of China}%
+%\large{\cYear}% %%%%%
+%\large{~Year}%
+%\large{\cMonth}% %%%%%
+%\large{~Month}\\
+%\end{center}
+%% restore the font size to normal
+%\normalsize
+%\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Thesis Committee Approval Form (page numbered but number not printed)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% insert the printed standard form when the thesis is ready to bind
+% Add the signed approval form before binding after the oral examination.
+% create an entry in table of contents for the approval form
+% currently outputs a blank page
+
+% ============================ SIGNED FORMS ============================
+% NTUST requires the first pages to be: Cover, Recommendation Form,
+% Qualification Form (no blank page). Those forms are generated per student
+% by the NTUST system and signed after the oral examination, so they are NOT
+% shipped with this template. When you have your signed scans, save them as
+% frontpages/recommendation.pdf and frontpages/qualification.pdf and UNCOMMENT
+% the two lines below. They will be inserted right after the title page.
+%\includepdf[pages=1,pagecommand={\thispagestyle{empty}}]{frontpages/recommendation.pdf}
+%\includepdf[pages=1,pagecommand={\thispagestyle{empty}}]{frontpages/qualification.pdf}
+% =====================================================================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Chinese Abstract
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\thispagestyle{plain}  % no header, but in watermark mode there will be a watermark
+% create an entry in table of contents for the Chinese abstract
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameCabstract}
+
+% aligned to the center of the page
+\begin{center}
+% font size (relative to 12 pt):
+% \large (14pt) < \Large (18pt) < \LARGE (20pt) < \huge (24pt)< \Huge (24 pt)
+% Set the line spacing to single for the names (to compress the lines)
+\renewcommand{\baselinestretch}{1}   %line spacing 1x
+% it needs a font size changing command to be effective
+%\large{\cTitle}\\  %Chinese title
+%\vspace{0.83cm}
+% \makebox is a text box with specified width;
+% option s: stretch
+% use \makebox to make sure
+% each text field occupies the same width
+%\makebox[1.5cm][s]{\large{Student: }}
+%\makebox[3cm][l]{\large{\myCname}} %student's Chinese name
+%\hfill
+%
+%\makebox[3cm][s]{\large{Advisor: }}
+%\makebox[3cm][l]{\large{\advisorCnameA}} \\ %Advisor A's Chinese name
+%
+% check whether co-advisor B exists
+\ifx \advisorCnameB  \itsempty
+\relax % no Advisor B; do not take any space or print anything
+\else
+%co-advisor B
+\makebox[1.5cm][s]{}
+\makebox[3cm][l]{} %%%%%
+\hfill
+\makebox[3cm][s]{}
+\makebox[3cm][l]{\large{\advisorCnameB}}\\ %Advisor B's Chinese name
+\fi
+%
+% check whether co-advisor C exists
+\ifx \advisorCnameC  \itsempty
+\relax % no Advisor C; do not take any space or print anything
+\else
+%co-advisor C
+\makebox[1.5cm][s]{}
+\makebox[3cm][l]{} %%%%%
+\hfill
+\makebox[3cm][s]{}
+\makebox[3cm][l]{\large{\advisorCnameC}}\\ %Advisor C's Chinese name
+\fi
+%
+%\vspace{0.42cm} %2013/06/06
+\vspace{0.38cm}
+%
+%\large{\univCname}\large{\deptCname}\\ %university and department names
+%\vspace{0.83cm}
+%\vfill
+\textbf{\LARGE{CHINESE ABSTRACT}}\\
+\end{center}
+% Single spacing so the abstract fits on one page
+\renewcommand{\baselinestretch}{1}   %single spacing for the abstract body
+\normalsize
+%%%%%%%%%%%%%
+\input{frontpages/my_cabstract.tex}
+\renewcommand{\baselinestretch}{\mybaselinestretch}\normalsize   %restore thesis spacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       English Abstract
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\thispagestyle{plain}  % no header, but in watermark mode there will be a watermark
+
+% create an entry in table of contents for the English abstract
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameEabstract}
+
+% aligned to the center of the page
+\begin{center}
+% font size:
+% \large (14pt) < \Large (18pt) < \LARGE (20pt) < \huge (24pt)< \Huge (24 pt)
+% Set the line spacing to single for the names (to compress the lines)
+\renewcommand{\baselinestretch}{1}   %line spacing 1x
+%\large % it needs a font size changing command to be effective
+%\large{\eTitle}\\  %English title
+%\vspace{0.83cm}
+% \makebox is a text box with specified width;
+% option s: stretch
+% use \makebox to make sure
+% each text field occupies the same width
+%\makebox[2cm][s]{\large{Student: }}
+%\makebox[5cm][l]{\large{\myEname}} %student's English name
+%\hfill
+%
+%\makebox[2cm][s]{\large{Advisor: }}
+%\makebox[5cm][l]{\large{\advisorEnameA}} \\ %Advisor A's English name
+%
+% check whether co-advisor B exists
+\ifx \advisorCnameB  \itsempty
+\relax % no Advisor B; do not take any space or print anything
+\else
+%co-advisor B
+\makebox[2cm][s]{}
+\makebox[5cm][l]{} %%%%%
+\hfill
+\makebox[2cm][s]{}
+\makebox[5cm][l]{\large{\advisorEnameB}}\\ %Advisor B's English name
+\fi
+%
+% check whether co-advisor C exists
+\ifx \advisorCnameC  \itsempty
+\relax % no Advisor C; do not take any space or print anything
+\else
+%co-advisor C
+\makebox[2cm][s]{}
+\makebox[5cm][l]{} %%%%%
+\hfill
+\makebox[2cm][s]{}
+\makebox[5cm][l]{\large{\advisorEnameC}}\\ %Advisor C's English name
+\fi
+%
+%\vspace{0.42cm}
+%\large{Submitted to }\large{\fulldeptEname}\\  %department full name (English)
+%
+\ifx \collEname  \itsempty
+\relax % if no college name (English), do not take any space or print anything
+\else
+% has college name (English)
+%\large{\collEname}\\% college name (English)
+\fi
+%
+%\large{\univEname}\\  %university name (English)
+%\vspace{0.83cm}
+%\vfill
+%
+\textbf{\LARGE{ABSTRACT}}\\
+%\vspace{0.5cm}
+\end{center}
+% Single spacing so the abstract fits on one page
+\renewcommand{\baselinestretch}{1}   %single spacing for the abstract body
+\normalsize
+%%%%%%%%%%%%%
+\input{frontpages/my_eabstract.tex}
+\renewcommand{\baselinestretch}{\mybaselinestretch}\normalsize   %restore thesis spacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Acknowledgments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Acknowledgment
+\newpage
+\chapter*{\nameAckn}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameAckn}
+\input{frontpages/my_ackn.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Table of contents
+
+\newpage
+
+
+\renewcommand{\contentsname}{\nameToc}
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameToc}
+\tableofcontents
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       List of Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% List of Figures
+\newcommand{\loflabel}{Figure}
+\newpage
+\renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}
+\renewcommand{\listfigurename}{\nameTof}
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameTof}
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       List of Tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% List of Tables
+\newcommand{\lotlabel}{Table}
+\newpage
+\renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
+\renewcommand{\listtablename}{\nameLot}
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameLot}
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       List of Algorithms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% List of Algorithms
+%\newpage
+%\renewcommand{\listalgorithmname}{\nameToa}
+%\addcontentsline{toc}{chapter}{\nameToa}
+%\listofalgorithms
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Nomenclature
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Symbol list
+% define new environment, based on standard description environment
+% adapted from p.60~64, <<The LaTeX Companion>>, 1994, ISBN 0-201-54199-8
+%\newcommand{\SymEntryLabel}[1]%
+% {\makebox[3cm][l]{#1}}
+%
+%\newenvironment{SymEntry}
+%   {\begin{list}{}%
+%       {\renewcommand{\makelabel}{\SymEntryLabel}%
+%        \setlength{\labelwidth}{3cm}%
+%        \setlength{\leftmargin}{\labelwidth}%
+%        }%
+%   }%
+%   {\end{list}}
+%%
+%\newpage
+%\chapter*{\nameSlist}
+%\addcontentsline{toc}{chapter}{\nameSlist}
+%\input{frontpages/my_symbols.tex}
+
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%% Reset body page numbering to Arabic numerals, starting from 1
+%\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,32 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.bcf
+*.run.xml
+missfont.log
+
+# Built PDF (CI produces it; the student's own signed forms may also be PDFs)
+my_ntust_thesis.pdf
+
+# Student's signed forms (personal; never commit)
+frontpages/recommendation.pdf
+frontpages/qualification.pdf
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp

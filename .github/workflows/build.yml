@@ -1,0 +1,41 @@
+name: Build thesis PDF
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile with XeLaTeX (latexmk)
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: my_ntust_thesis.tex
+          latexmk_use_xelatex: true
+          # Debian image so the apt font packages below are available.
+          os: debian
+          # Fonts for the DEFAULT profile: TeX Gyre Termes (Latin) + AR PL UKai TW (CJK).
+          extra_system_packages: "fonts-texgyre fonts-arphic-ukai"
+          # If you switch to the bundled/offline font profile, also register them:
+          # extra_fonts: |
+          #   ./fonts/*.otf
+          #   ./fonts/*.ttf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-pdf
+          path: my_ntust_thesis.pdf
+
+      - name: Attach PDF to Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: my_ntust_thesis.pdf

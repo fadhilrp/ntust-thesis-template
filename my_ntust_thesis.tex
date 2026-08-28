@@ -1,0 +1,108 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8
+% this file is encoded in utf-8
+% v1.7
+%
+% IMPORTANT: compile with XeLaTeX, not pdfLaTeX. This template uses fontspec /
+% xeCJK for Chinese, which only work under XeLaTeX (or LuaLaTeX). On Overleaf open
+% Settings (gear icon, or File -> Settings) -> Compiler -> XeLaTeX.
+% Locally run: latexmk -xelatex my_ntust_thesis.tex
+
+\documentclass[12pt, a4paper]{ntust_report}
+
+\usepackage{fontspec}   %required for font configuration
+\usepackage{xeCJK}       %separates CJK and Latin font settings
+\usepackage[UTF8,heading = true]{ctex}
+
+% ============================== FONTS ==============================
+% This template is compiled with XeLaTeX. Under XeLaTeX, \setmainfont /
+% \setCJKmainfont look fonts up by NAME through the operating system's font
+% database (fontconfig on Linux/Overleaf), NOT the TeX Live tree.
+%
+% DEFAULT PROFILE (portable): TeX Gyre Termes (a Times-metric font shipped with
+% every TeX Live, so it resolves on Overleaf, CI, and local) + AR PL UKai TW
+% (the NTUST-canonical Kai/楷 CJK font, available on Overleaf by name; install
+% the "fonts-arphic-ukai" package for local/CI builds). This builds unchanged on
+% Overleaf out of the box.
+\setmainfont{TeX Gyre Termes}
+\setCJKmainfont[AutoFakeBold={4}]{AR PL UKai TW}
+
+% ---- ALTERNATIVE PROFILES (uncomment ONE set to override the default) ----
+%
+% (a) University-exact (matches the printed NTUST spec byte-for-byte). Both
+%     names resolve on Overleaf; locally you need the actual fonts installed.
+% \setmainfont{Times New Roman}
+% \setCJKmainfont[AutoFakeBold={4}]{cwTeXKai}
+%
+% (b) Fully self-contained / offline (guaranteed identical everywhere). Put the
+%     font files in fonts/ and load by path. See fonts/README.md for where to
+%     get an openly-licensed Kai font (e.g. TW-Kai or cwTeX Q Kai).
+% \setmainfont{texgyretermes-regular.otf}[
+%   Path=./fonts/, BoldFont=texgyretermes-bold.otf,
+%   ItalicFont=texgyretermes-italic.otf, BoldItalicFont=texgyretermes-bolditalic.otf]
+% \setCJKmainfont[AutoFakeBold={4}, Path=./fonts/, Extension=.ttf]{TW-Kai}
+% ===================================================================
+
+\XeTeXlinebreaklocale "zh"                %these two lines are required for automatic CJK line breaking
+\XeTeXlinebreakskip = 0pt plus 1pt       %these two lines are required for automatic CJK line breaking
+
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\input{common_env}  %basic environment setup -- no changes needed
+
+\begin{document}
+
+
+
+	\input{chinese_trans} %defines display terms used in the document
+
+	%----------------------------------------------------------------------------------------------------------------------------------------------------------
+	%%% The following loads front matter, body, and back matter
+	% do not modify this line
+
+	%----------------------------------------------------------------------------------------------------------------------------------------------------------
+	% front matter
+	% includes: cover, title page, Chinese abstract, English abstract, acknowledgments,
+	%           table of contents, list of tables, list of figures, nomenclature
+	% When drafting individual chapters, this section can be commented out to save compile time.
+	% Actual content is determined by:
+	%    my_names.tex, my_cabstract.tex, my_eabstract.tex, my_ackn.tex, my_symbols.tex
+	% ntust_frontpages.tex only defines the overall layout structure and does not need to be modified.
+	% When drafting individual chapters, this section can be commented out to save compile time.
+
+	\input{frontpages/ntust_frontpages.tex}
+
+
+
+
+	%----------------------------------------------------------------------------------------------------------------------------------------------------------
+	% main body -- it is recommended to split files by chapter.
+	% Suggested naming convention:
+	%   introduction.tex   related_work.tex  protocol.tex  evaluation.tex  conclusion.tex
+	% as file names for each chapter, stored in the sections/ folder.
+	% The actual naming is up to you.
+	% When drafting a chapter, comment out the other chapters (prefix with %)
+
+	\input{sections/1_introduction.tex}        % Chapter 1: Introduction (template guide)
+	\input{sections/2_example-elements.tex}    % Chapter 2: Common document elements
+	% Add more chapters here, e.g.:
+	% \input{sections/3_methodology.tex}
+	% \input{sections/4_results.tex}
+	% \input{sections/5_conclusion.tex}
+
+	%----------------------------------------------------------------------------------------------------------------------------------------------------------
+	% back matter
+	% includes: references, appendices, curriculum vitae
+	% Actual content is determined by:
+	%    my_bib.bib, my_appendix.tex, my_vita.tex
+	% ntust_backpages.tex only defines the overall layout structure and does not need to be modified.
+	% When drafting individual chapters, this section can be commented out to save compile time.
+	%\bibliographystyle{unsrt}
+	\input{backpages/ntust_backpages.tex}
+	%\bibliographystyle{unsrt}
+
+
+
+\end{document}

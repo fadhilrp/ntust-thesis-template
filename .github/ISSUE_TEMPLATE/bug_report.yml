@@ -1,0 +1,32 @@
+name: Bug report
+description: Something does not compile, or renders incorrectly.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Describe the problem and paste the relevant lines from the LaTeX log.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Overleaf (TeX Live 2025), or local TeX Live 2024 on macOS, XeLaTeX"
+    validations:
+      required: true
+  - type: textarea
+    id: mwe
+    attributes:
+      label: Minimal example
+      description: The smallest snippet that reproduces the problem.
+      render: latex
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I compiled with XeLaTeX (not pdfLaTeX)
+        - label: The CJK and Latin fonts are available (see fonts/README.md)
+        - label: I searched existing issues

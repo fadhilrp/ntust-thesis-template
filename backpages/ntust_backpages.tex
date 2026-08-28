@@ -1,0 +1,33 @@
+%
+% this file is encoded in utf-8
+% v1.7
+
+%%% References
+\newpage
+%\bibliographystyle{unsrt}
+\phantomsection
+\addcontentsline{toc}{chapter}{\nameRef}
+\renewcommand{\bibname}{\nameRef}
+%\bibliographystyle{unsrt}
+\bibliographystyle{ieeetr}  % use IEEE Trans journal format
+%\bibliographystyle{unsrt}
+\bibliography{my_bib}  %bib file for references
+
+%%% Appendices
+\input{backpages/my_appendix.tex}
+
+%%% Curriculum Vitae
+%\newpage
+%\chapter*{\nameVita}
+%\addcontentsline{toc}{chapter}{\nameVita}
+%\input{backpages/my_vita.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Copyright Authorization (handled via the NTUST online e-thesis system, not bound in)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The copyright authorization is submitted through NTUST's digital-thesis system rather than
+% bound into the document, so no placeholder page or ToC entry is emitted here. To bind a signed
+% form instead, \includepdf it in place of this comment.

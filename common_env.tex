@@ -1,0 +1,175 @@
+
+
+
+
+% Unless the university changes the thesis format (margins, header, footer, watermark),
+% or you need to add LaTeX packages,
+% or you want to change the default CJK font or encoding,
+% there is no need to modify this file.
+% To write the thesis, modify the files whose names begin with my_
+
+
+
+\usepackage{titletoc}
+\usepackage[nospace]{cite}  % for smart citation
+\usepackage{geometry}  % for easy margin settings
+\usepackage{subfigure}  % for subfigure
+\usepackage{multirow}
+\usepackage{rotating}  % for full-page landscape (sideways) figures
+\usepackage{longtable}  % for tables that span multiple pages
+%\usepackage[dvipdfm]{graphicx}  % for graphic   using eps
+\usepackage{graphicx}  % for graphic   using eps
+\usepackage{pdfpages}  % include the signed recommendation and qualification form PDFs
+\usepackage{float}  % [H] hard figure placement (screenshot appendix); also required by algorithm
+\usepackage{etoolbox}  % environment hooks for global table styling
+\usepackage{adjustbox}  % cap table width to the text block (shrink-only)
+\usepackage{tikz}  % schema / ER diagrams drawn in-document
+\usetikzlibrary{arrows.meta}
+
+%\usepackage{epstopdf} % enable when using pdflatex; not needed with latex; auto-converts xxx.eps to XXX.pdf
+
+%\usepackage{subfig}
+\usepackage{algorithmic}  %algorithm support
+\usepackage{algorithm}
+
+%
+% margins setting
+\geometry{verbose,a4paper,tmargin=1.18in,bmargin=2cm,lmargin=1.18in,rmargin=1.18in,headheight=14.5pt}
+%
+% Reduce the top headroom above chapter titles. \@makeschapterhead covers starred
+% front-matter pages (acknowledgements, table of contents, lists, abstracts) and
+% \@makechapterhead covers numbered body chapters. Both bodies are copied verbatim from
+% ntust_report.cls with only a negative top skip prepended. Tune the single skip value.
+\makeatletter
+\def\@makeschapterhead#1{%
+  \vspace*{-1.5cm}%
+  {\parindent \z@ \centering \normalfont
+    \interlinepenalty\@M
+    \LARGE \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+\def\@makechapterhead#1{%
+  \vspace*{-1.5cm}%
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \LARGE\bfseries \MakeUppercase{\prechaptername}\space\thechapter
+        \par\nobreak
+    \fi
+    \interlinepenalty\@M
+    \LARGE \bfseries \MakeUppercase{#1}\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother
+%
+\usepackage{amsmath} % various AMS math features
+\usepackage{amssymb} % various AMS math symbols
+\usepackage{mathrsfs} %script math symbols; use \mathscr{E} in math mode to get script E
+\usepackage{listings} % source code listing package
+%
+% listing settings
+\lstset{breaklines=true,% allow long lines to break
+extendedchars=false,% CJK handling does not need extendedchars
+texcl=true,% CJK comments need TeX-processed comment lines, so set to true
+comment=[l]\%\%,% use double percent signs as the start marker for CJK comments in code, to match MATLAB
+basicstyle=\small,% small font, approximately 10 pt
+commentstyle=\upshape,% default is italic, which affects English in comments; use upright instead
+%language=Octave % displays some Octave keywords in bold
+}
+
+\usepackage{url} % cite URLs in text with \url{http://www.ntust.edu.tw}
+
+% graphicx package
+% Is the user's workflow pdftex or latex + dvipdfmx?
+% Different parameters apply depending on the workflow.
+% Auto-detection below.
+% Reference:
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf
+%\newcommand\mydvipdfmxflow{dvipdfmx}
+%\newcommand\mypdftexflow{pdftex}
+%
+%\ifx\pdfoutput\undefined
+%  % not running pdftex
+%  \usepackage[dvipdfm]{graphicx}
+%  \newcommand\myworkflow{dvipdfmx}  % set the flag for hyperref
+%\else
+%  \ifx\pdfoutput\relax
+%    % not running pdftex
+%    \usepackage[dvipdfm]{graphicx}
+%    \newcommand\myworkflow{dvipdfmx}  % set the flag
+%  \else
+%    % running pdftex, with...
+%    \ifnum\pdfoutput>0
+%      % ... PDF output
+%      \usepackage[pdftex]{graphicx}
+%      \newcommand\myworkflow{pdftex}  % set the flag
+%    \else
+%      %...DVI output
+%      \usepackage[dvipdfm]{graphicx}
+%      \newcommand\myworkflow{dvipdfmx}  % set the flag
+%    \fi
+%  \fi
+%\fi
+
+\usepackage{fancyhdr}  % use the enhanced header package to place the watermark
+% (occupies the central header)
+% users who do not need a watermark can still use this package to generate custom headers and footers
+%
+% activate the fancy header/footer package
+\pagestyle{fancy}
+\fancyhead{}  % reset left, central, right header to empty
+\fancyfoot[C]{\thepage} %place page number in the central footer
+\renewcommand{\headrulewidth}{0pt} % header rule; 0pt means no line
+
+% If no watermark is needed, comment out the lines between >>> and <<<
+% Watermark disabled for ETD upload: the NTUST ETD system inserts the watermark
+% and PDF security automatically, so the source must not add its own.
+%% Watermark >>>
+%7/23
+%\input{watermark/ntust_watermark.tex}
+%% <<< Watermark
+
+
+
+% global page layout
+\newcommand{\mybaselinestretch}{1.4}  %line spacing 1.5x + 20% (approximately double space)
+\renewcommand{\baselinestretch}{\mybaselinestretch}  % default thesis line spacing
+\parskip=0pt  % no extra space between paragraphs; separation by first-line indent only
+\parindent = 24Pt  % paragraph indentation is controlled by CJK, so set to no indent here
+
+\usepackage{indentfirst}
+\usepackage{caption}
+\captionsetup{labelsep=space, labelfont=bf, font=small, aboveskip=6pt, belowskip=6pt}
+\captionsetup[figure]{justification=centering}
+\captionsetup[table]{justification=centering, position=top}
+
+% Consistent table styling and margin fit across the whole thesis.
+% Every table renders at the same size (\small) with single-spaced cells, and is capped
+% to the text width (shrink-only, never stretched) and centered. longtable is not matched
+% because it cannot be placed in a box.
+\AtBeginEnvironment{tabular}{\small\renewcommand{\baselinestretch}{1}\selectfont}
+\BeforeBeginEnvironment{tabular}{\begin{adjustbox}{max width=\textwidth,center}}
+\AfterEndEnvironment{tabular}{\end{adjustbox}}
+
+% Uniform vertical spacing around all floats (figures and tables).
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}
+\usepackage[hidelinks, unicode, bookmarks=true, bookmarksnumbered=true]{hyperref}
+
+% Force every chapter-level table-of-contents entry (front-matter pages and
+% numbered chapters) into full caps, without touching section-level entries.
+% Wrapper defined at top level; only \let happens in the begin-document hook,
+% so it wraps hyperref's final \contentsline safely.
+\newcommand{\ntustcapchaptertoc}[4]{%
+  \ifstrequal{#1}{chapter}%
+    {\ntustorigcontentsline{#1}{\MakeUppercase{#2}}{#3}{#4}}%
+    {\ntustorigcontentsline{#1}{#2}{#3}{#4}}%
+}
+\AtBeginDocument{%
+  \let\ntustorigcontentsline\contentsline
+  \let\contentsline\ntustcapchaptertoc
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  end of preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

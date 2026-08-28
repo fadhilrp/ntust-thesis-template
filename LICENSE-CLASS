@@ -1,0 +1,16 @@
+The document class file `ntust_report.cls` in this repository descends from the
+standard LaTeX `report.cls` (Copyright the LaTeX Project and contributors),
+adapted for the NTUST thesis format. In keeping with its lineage,
+`ntust_report.cls` is distributed under the LaTeX Project Public License (LPPL),
+version 1.3c or (at your option) any later version.
+
+The latest version of this license is at https://www.latex-project.org/lppl.txt
+and version 1.3c or later is part of all distributions of LaTeX version
+2005/12/01 or later.
+
+This work has the LPPL maintenance status "maintained". If you modify and
+redistribute the class file, LPPL requires that you rename it so that it cannot
+be confused with the original (for example, `mydept_report.cls`).
+
+The rest of the template (everything except the .cls) is under the MIT License;
+see LICENSE.

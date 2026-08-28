@@ -1,0 +1,89 @@
+%
+% this file is encoded in utf-8
+% v1.7
+% If the watermark is not needed throughout the entire document, comment out
+% the lines between >>> and <<< below (prefix lines with %)
+% Reference: Keith Reckdahl, "Using Imported Graphics in LATEX2e" (epslatex.pdf) p.39
+% If only specific pages need a watermark,
+% use one of the following commands depending on the page style:
+% Normal page:  \thispagestyle{WaterMarkPage}
+% Plain page:   \thispagestyle{PlainWaterMarkPage}
+% Empty page:   \thispagestyle{EmptyWaterMarkPage}
+
+
+% Save the reusable watermark image
+% The image file is my_watermark.xxx
+% The extension can be omitted; any format the LaTeX system can handle is acceptable: pdf, gif, png, jpg, eps, ...
+% Some image formats may require pre-processing in certain workflows.
+% For example, pdflatex cannot directly handle eps files;
+%  latex + dvipdfmx cannot directly handle pdf, gif, png, jpg -- use the ebb utility
+%  to generate a .bb bounding-box file for the image.
+% old code
+%\newsavebox{\mywatermark}
+%\sbox{\mywatermark}{\includegraphics[keepaspectratio,%
+%height=0.8\textheight,%
+%width=0.8\textwidth]{my_watermark}}
+% new code
+\newsavebox{\mywatermark}
+%7/23
+\sbox{\mywatermark}{\includegraphics[keepaspectratio,
+width=2.5cm]{watermark/ntust_watermark.eps}}
+
+
+% Macro command to place the watermark in the central header
+\newcommand{\PlaceWaterMark}{\fancyhead[C]{\setlength{\unitlength}{1in}%
+\begin{picture}(0,0)%
+%\put(-2.2,-6){\usebox{\mywatermark}}% old code
+\put(-0.5,-5.3){\usebox{\mywatermark}}% new code
+\end{picture}}%
+}
+
+\fancyhead{}  % reset left, central, right header to empty
+%% If a watermark is NOT needed on every page,
+%% comment out the code between >>> and <<<
+%% >>> Full-document watermark
+\PlaceWaterMark  % place watermark on every page (except plain and empty pages)
+
+% Redefine the plain page style
+% Also add the watermark to every plain page (first page of each chapter)
+
+\fancypagestyle{plain}{%
+\fancyhead{}%
+\PlaceWaterMark%
+\fancyfoot{}%
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}
+%% <<< Full-document watermark
+
+%% If only one or two pages need a watermark,
+%% use \thispagestyle{WaterMarkPage} on that page (which has a page number).
+%% This command does not affect the existing header or footer.
+\fancypagestyle{WaterMarkPage}{%
+\PlaceWaterMark%
+}
+
+%% If only one or two plain pages need a watermark (e.g. abstract, vita),
+%% use \thispagestyle{PlainWaterMarkPage} on that page (which has a page number).
+%% Shows only the page number and watermark, no other header or footer.
+%% Equivalent to plain page style + watermark.
+\fancypagestyle{PlainWaterMarkPage}{%
+\fancyhead{}%
+\PlaceWaterMark%
+\fancyfoot{}%
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}
+
+%% If only one or two empty pages need a watermark (e.g. cover, title page),
+%% use \thispagestyle{EmptyWaterMarkPage} on that page (no page number).
+%% Equivalent to empty page style + watermark.
+\fancypagestyle{EmptyWaterMarkPage}{%
+\fancyhead{}%
+\PlaceWaterMark%
+\fancyfoot{}%
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}
