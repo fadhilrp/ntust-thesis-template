@@ -20,9 +20,13 @@ examples to start from.
 
 ## Quick start: Overleaf (no install)
 
+[Overleaf](https://www.overleaf.com) is a free online LaTeX editor. Create a free
+account first if you do not have one, then:
+
 1. On this repo, click **Code ▾ → Download ZIP**.
-2. In Overleaf: **New Project → Upload Project**, and drop the ZIP.
-   *(Overleaf's "Import from GitHub" is a premium feature; the ZIP path is free.)*
+2. In [Overleaf](https://www.overleaf.com): **New Project → Upload Project**, and drop
+   the ZIP. *(Overleaf's "Import from GitHub" is a premium feature; the ZIP path is
+   free.)*
 3. Open the project **Settings** (the gear icon, or **File → Settings**), then in the
    **Compiler** section set:
    - **Compiler:** `XeLaTeX` (required, since Chinese does not render under pdfLaTeX).
@@ -146,9 +150,18 @@ This template builds on earlier work:
   (the LaTeX Project, LPPL), adapted for the NTUST thesis format.
 - **Fonts.** TeX Gyre Termes (GUST) and AR PL UKai (Arphic/Firefly).
 
+## Questions and support
+
+Have a usage question rather than a bug? Please use
+[GitHub Discussions](https://github.com/fadhilrp/ntust-thesis-template/discussions).
+For a compile error or a formatting mismatch with the official spec, open an
+[issue](https://github.com/fadhilrp/ntust-thesis-template/issues).
+
+*(Repo owner: if the Discussions link 404s, enable it under Settings → General →
+Features → Discussions.)*
+
 ## Contributing
 
 Issues and PRs welcome, see [`CONTRIBUTING.md`](CONTRIBUTING.md) and
-[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Tip: after pushing, enable **Template
-repository** in the repo Settings so others get a "Use this template" button, and
-turn on **Issues** and **Discussions**.
+[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Tip: enable **Template repository** in the
+repo Settings so others get a "Use this template" button.
