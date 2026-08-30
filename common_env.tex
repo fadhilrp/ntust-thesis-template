@@ -33,8 +33,8 @@
 \usepackage{algorithm}
 
 %
-% margins setting
-\geometry{verbose,a4paper,tmargin=1.18in,bmargin=2cm,lmargin=1.18in,rmargin=1.18in,headheight=14.5pt}
+% margins setting -- NTUST spec: top 3cm, bottom 2cm, left/right 3cm each (A4)
+\geometry{verbose,a4paper,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=3cm,headheight=14.5pt}
 %
 % Reduce the top headroom above chapter titles. \@makeschapterhead covers starred
 % front-matter pages (acknowledgements, table of contents, lists, abstracts) and
@@ -131,7 +131,7 @@ commentstyle=\upshape,% default is italic, which affects English in comments; us
 
 
 % global page layout
-\newcommand{\mybaselinestretch}{1.4}  %line spacing 1.5x + 20% (approximately double space)
+\newcommand{\mybaselinestretch}{1.5}  % NTUST spec: 行距 1.5 倍行高 (1.5x line spacing)
 \renewcommand{\baselinestretch}{\mybaselinestretch}  % default thesis line spacing
 \parskip=0pt  % no extra space between paragraphs; separation by first-line indent only
 \parindent = 24Pt  % paragraph indentation is controlled by CJK, so set to no indent here

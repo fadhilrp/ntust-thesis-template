@@ -15,8 +15,9 @@ examples to start from.
 
 > This is a community template, not an official NTUST product. Always check the
 > current formatting rules from your department and the NTUST library before you
-> submit. If you spot a mismatch with the official spec, please
-> [open an issue](../../issues).
+> submit. See [`FORMAT.md`](FORMAT.md) for how this template maps to the official
+> NTUST layout spec (margins, fonts, spacing, page order). If you spot a mismatch,
+> please [open an issue](../../issues).
 
 ## Quick start: Overleaf (no install)
 
