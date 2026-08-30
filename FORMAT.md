@@ -43,6 +43,18 @@ The important library rule: **no blank page between the first three pages**
 (cover, recommendation, qualification). See the SIGNED FORMS block in
 `frontpages/ntust_frontpages.tex`.
 
+**A note on an inconsistency inside the spec.** The rules text (section 三) lists
+the order as Chinese abstract, then English abstract, then acknowledgements. The
+table-of-contents sample (附錄七) instead shows acknowledgements first, then the
+abstracts, and merges the list of figures and list of tables into one combined
+"圖表索引 (List of Tables/Figures)" entry. This template follows the **rules text
+(section 三)**: abstracts first, then acknowledgements, with separate lists of
+figures and tables. If your department follows the sample instead, reorder the
+`\input`s in `frontpages/ntust_frontpages.tex`.
+
+**Keywords.** The spec requires **5 to 7 keywords** at the end of each abstract.
+The placeholder abstracts show five; keep yours in that range.
+
 ## Notes and department-dependent items
 
 The spec repeatedly states that the cover/title-page format is "for reference; the
